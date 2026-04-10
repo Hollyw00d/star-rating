@@ -1,0 +1,13 @@
+fieldset.ratings {
+  display: inline-flex;
+}
+
+fieldset.ratings span.rating {
+  padding: 5px;
+}
+
+fieldset.ratings span.active.rating,
+fieldset.ratings span.rating:hover {
+  background-color: #000;
+  color: #fff;
+}
