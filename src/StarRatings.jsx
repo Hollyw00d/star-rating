@@ -41,21 +41,26 @@ export default function StarRatings() {
       setStarRating(rating);
    };
 
-   const handleKeyPress = (e, rating) => {
+   const handleKeyDown = (e, rating) => {
       switch(e.key) {
          case 'Enter':
          case ' ':
+            e.preventDefault();
             setStarRating(rating);
+         default:
+            break;
       }
    };
 
-   return (<fieldset className="ratings" role="radiogroup">
-      {ratings.map((rating) => {
-         const currentRating = hoverRating ?? starRating;
-         const activeStarRating = currentRating !== null && currentRating >= rating.value;
-         const singleActiveStarRating = rating.value === starRating ? true : false;
+   return (
+      <div className="ratings" role="radiogroup">
+         {ratings.map((rating) => {
+            const currentRating = hoverRating ?? starRating;
+            const activeStarRating = currentRating !== null && currentRating >= rating.value;
+            const singleActiveStarRating = rating.value === starRating;
 
-         return <Star key={rating.value} rating={rating} handleRatingClick={handleRatingClick} handleKeyPress={handleKeyPress} activeStarRating={activeStarRating} singleActiveStarRating={singleActiveStarRating} setHoverRating={setHoverRating} />;
-      })}
-   </fieldset>);
+            return <Star key={rating.value} rating={rating} handleRatingClick={handleRatingClick} handleKeyDown={handleKeyDown} activeStarRating={activeStarRating} singleActiveStarRating={singleActiveStarRating} setHoverRating={setHoverRating} />;
+         })}
+         </div>
+      );
 }
