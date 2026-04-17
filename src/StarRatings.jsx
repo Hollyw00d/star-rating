@@ -42,16 +42,18 @@ export default function StarRatings() {
    };
 
    const handleKeyDown = (e, rating) => {
-      e.preventDefault();
       switch(e.key) {
          case 'Enter':
          case ' ':
+            e.preventDefault();
             setStarRating(rating);
+         default:
+            break;
       }
    };
 
    return (
-      <fieldset className="ratings" role="radiogroup">
+      <div className="ratings" role="radiogroup">
          {ratings.map((rating) => {
             const currentRating = hoverRating ?? starRating;
             const activeStarRating = currentRating !== null && currentRating >= rating.value;
@@ -59,6 +61,6 @@ export default function StarRatings() {
 
             return <Star key={rating.value} rating={rating} handleRatingClick={handleRatingClick} handleKeyDown={handleKeyDown} activeStarRating={activeStarRating} singleActiveStarRating={singleActiveStarRating} setHoverRating={setHoverRating} />;
          })}
-         </fieldset>
+         </div>
       );
 }

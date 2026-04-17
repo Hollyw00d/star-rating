@@ -1,17 +1,20 @@
-fieldset.ratings {
+.ratings {
   display: inline-flex;
   border: 0;
 }
 
-fieldset.ratings span.rating {
+.ratings .rating {
   padding: 5px;
+  border: 0;
+  background-color: transparent;
+  border-radius: 0;
 }
 
-fieldset.ratings span.rating svg.star-icon {
+.ratings .rating svg.star-icon {
   width: 50px;
 }
 
-fieldset.ratings span.rating svg.star-icon:hover,
-fieldset.ratings span.rating svg.star-icon.active {
+.ratings .rating svg.star-icon:hover,
+.ratings .rating svg.star-icon.active {
   fill: #ff0;
 }
