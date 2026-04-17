@@ -1,13 +1,17 @@
 fieldset.ratings {
   display: inline-flex;
+  border: 0;
 }
 
 fieldset.ratings span.rating {
   padding: 5px;
 }
 
-fieldset.ratings span.active.rating,
-fieldset.ratings span.rating:hover {
-  background-color: #000;
-  color: #fff;
+fieldset.ratings span.rating svg.star-icon {
+  width: 50px;
+}
+
+fieldset.ratings span.rating svg.star-icon:hover,
+fieldset.ratings span.rating svg.star-icon.active {
+  fill: #ff0;
 }
