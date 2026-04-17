@@ -41,7 +41,8 @@ export default function StarRatings() {
       setStarRating(rating);
    };
 
-   const handleKeyPress = (e, rating) => {
+   const handleKeyDown = (e, rating) => {
+      e.preventDefault();
       switch(e.key) {
          case 'Enter':
          case ' ':
@@ -54,9 +55,9 @@ export default function StarRatings() {
          {ratings.map((rating) => {
             const currentRating = hoverRating ?? starRating;
             const activeStarRating = currentRating !== null && currentRating >= rating.value;
-            const singleActiveStarRating = rating.value === starRating ? true : false;
+            const singleActiveStarRating = rating.value === starRating;
 
-            return <Star key={rating.value} rating={rating} handleRatingClick={handleRatingClick} handleKeyPress={handleKeyPress} activeStarRating={activeStarRating} singleActiveStarRating={singleActiveStarRating} setHoverRating={setHoverRating} />;
+            return <Star key={rating.value} rating={rating} handleRatingClick={handleRatingClick} handleKeyDown={handleKeyDown} activeStarRating={activeStarRating} singleActiveStarRating={singleActiveStarRating} setHoverRating={setHoverRating} />;
          })}
          </fieldset>
       );
